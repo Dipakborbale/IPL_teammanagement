@@ -1,0 +1,54 @@
+<%- include('parts/header') %>
+
+<div class="container">
+    <h1>Update Player</h1>
+    <form method="post" action="/update/<%= updatedata._id %>" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="<%= updatedata.name %>">
+        </div>
+        <div class="form-group">
+            <label for="Country">City</label>
+            <input type="text" class="form-control" id="Country" name="Country" placeholder="Country" value="<%= updatedata.Country %>">
+        </div>
+        <div class="form-group">
+            <label for="Age">Age</label>
+            <input type="number" class="form-control" id="Age" name="Age" placeholder="Age" value="<%= updatedata.Age %>">
+        </div>
+        <div class="form-group">
+            <label for="Role">Role</label>
+            <select class="form-control" id="Role" name="Role">
+                <option value="" selected disabled hidden>Role</option>
+                <option value="Batsman" <% if (updatedata.Role === 'Batsman') { %> selected <% } %>>Batsman</option>
+                <option value="Bowler" <% if (updatedata.Role === 'Bowler') { %> selected <% } %>>Bowler</option>
+                <option value="Allrounder" <% if (updatedata.Role === 'Allrounder') { %> selected <% } %>>Allrounder</option>
+                <option value="WK Keeper batsman" <% if (updatedata.Role === 'WK Keeper batsman') { %> selected <% } %>>WK Keeper batsman</option>
+            </select>
+            
+        </div>
+        <div class="form-group">
+            <label for="teamName">Team Name</label>
+            <select class="form-control" id="teamName" name="teamName">
+                <option value="" selected disabled hidden>Team Name</option>
+                <option value="Mumbai Indians" <% if (updatedata.teamName === 'Mumbai Indians') { %> selected <% } %>>Mumbai Indians</option>
+                <option value="Chennai Super Kings" <% if (updatedata.teamName === 'Chennai Super Kings') { %> selected <% } %>>Chennai Super Kings</option>
+                <option value="Royal Challengers Bangalore" <% if (updatedata.teamName === 'Royal Challengers Bangalore') { %> selected <% } %>>Royal Challengers Bangalore</option>
+                <option value="Sunrisers Hyderabad" <% if (updatedata.teamName === 'Sunrisers Hyderabad') { %> selected <% } %>>Sunrisers Hyderabad</option>
+                <option value="Delhi Capitals" <% if (updatedata.teamName === 'Delhi Capitals') { %> selected <% } %>>Delhi Capitals</option>
+                <option value="Kolkata Knight Riders" <% if (updatedata.teamName === 'Kolkata Knight Riders') { %> selected <% } %>>Kolkata Knight Riders</option>
+                <option value="Punjab Kings" <% if (updatedata.teamName === 'Punjab Kings') { %> selected <% } %>>Punjab Kings</option>
+                <option value="Rajasthan Royals" <% if (updatedata.teamName === 'Rajasthan Royals') { %> selected <% } %>>Rajasthan Royals</option>
+                <option value="Gujarat Titans" <% if (updatedata.teamName === 'Gujarat Titans') { %> selected <% } %>>Gujarat Titans</option>
+                <option value="Lucknow Super Giants" <% if (updatedata.teamName === 'Lucknow Super Giants') { %> selected <% } %>>Lucknow Super Giants</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+    <label for="image">Image</label>
+    <input type="file" class="form-control-file" id="image" name="image">
+    <!-- Display the filename if a file is selected -->
+    <span><%- updatedata.image ? updatedata.image : 'No file chosen' %></span>
+</div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>

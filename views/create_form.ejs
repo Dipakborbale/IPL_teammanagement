@@ -1,0 +1,107 @@
+<%- include('parts/header') %>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center mb-4">
+            <img src="https://www.iplt20.com/assets/images/IPL_LOGO_CORPORATE_2024.png" alt="" style="width: 250px; margin-bottom: 20px;">
+        </div>
+    </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://assets.ccbp.in/frontend/react-js/ipl-dashboard-lg-bg.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style for the "Add Player" heading */
+        .heading {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 36px;
+            text-align: center;
+            margin-top: 20px; /* Adjust the top margin here */
+            margin-bottom: 50px;
+        }
+
+        /* Other styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    <h1 class="heading">Add Player</h1>
+    <form method="post" action="/add" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <label for="Country">Country</label>
+            <input type="text" class="form-control" id="Country" name="Country" placeholder="Country">
+        </div>
+        <div class="form-group">
+            <label for="Age">Age</label>
+            <input type="number" class="form-control" id="Age" name="Age" placeholder="Age">
+        </div>
+        <div class="form-group">
+            <label for="Role">Role</label>
+            <select class="form-control" id="Role" name="Role">
+                <option value="" selected disabled hidden>Role</option>
+                <option value="Batsman">Batsman</option>
+                <option value="Bowler">Bowler</option>
+                <option value="Allrounder">Allrounder</option>
+                <option value="WK Keeper batsman">WK Keeper batsman</option> <!-- New option added -->
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="teamName">Team Name</label>
+            <select class="form-control" id="teamName" name="teamName">
+                <option value="" selected disabled hidden>Team Name</option>
+                <% teams.forEach((team) => { %>
+                    <option value="<%= team.teamName %>"><%= team.teamName %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" class="form-control-file" id="image" name="image">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

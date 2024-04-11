@@ -1,0 +1,335 @@
+<%- include('parts/header') %>
+
+<div class="mt-5"></div>
+
+<% const teamDetails = {
+    "Mumbai Indians": {
+        captain: "Hardik Pandya",
+        owner: "Mumbai Indians Group",
+        coach: "Mahela Jayawardene",
+        venue: "Wankhede Stadium, Mumbai",
+        logo: "https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/MI/Logos/Logooutline/MIoutline.png",
+        trophies: "2013, 2015, 2017, 2019, 2020",
+        officialSite: "https://www.mumbaiindians.com/"
+    },
+    "Chennai Super Kings": {
+        captain: "Rutiraj Gaikwad",
+        owner: "Chennai Super Kings Cricket Ltd.",
+        coach: "Stephen Fleming",
+        venue: "M. A. Chidambaram Stadium, Chennai",
+        logo: "https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/CSK/logos/Logooutline/CSKoutline.png",
+        trophies: "2010, 2011, 2018, 2021, 2023",
+        officialSite: "https://www.chennaisuperkings.com/"
+    },
+    "Royal Challengers Bangalore": {
+        captain: "Faf Du Plesis",
+        owner: "Royal Challengers Sports Private Ltd.",
+        coach: "Simon Katich",
+        venue: "M. Chinnaswamy Stadium, Bangalore",
+        logo: "https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/RCB/Logos/Logooutline/RCBoutline.png",
+        trophies: "None",
+        officialSite: "https://www.royalchallengers.com/"
+    },
+    "Sunrisers Hyderabad": {
+        captain: "Pat Cummins",
+        owner: "SUN Group",
+        coach: "Trevor Bayliss",
+        venue: "Rajiv Gandhi International Cricket Stadium, Hyderabad",
+        logo: "https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/SRH/Logos/Logooutline/SRHoutline.png",
+        trophies: "2016",
+        officialSite: "https://www.sunrisershyderabad.in/"
+    },
+    "Delhi Capitals": {
+        captain: "Rishabh Pant",
+        owner: "GMR Group and JSW Group",
+        coach: "Ricky Ponting",
+        venue: "Arun Jaitley Stadium, Delhi",
+        logo: "https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/DC/Logos/LogoOutline/DCoutline.png",
+        trophies: "None",
+        officialSite: "https://www.delhicapitals.in/"
+    },
+    "Kolkata Knight Riders": {
+        captain: "Shreyas Iyer",
+        owner: "Knight Riders Group",
+        coach: "Brendon McCullum",
+        venue: "Eden Gardens, Kolkata",
+        logo: "https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/KKR/Logos/Logooutline/KKRoutline.png",
+        trophies: "2012, 2014",
+        officialSite: "https://www.kkr.in/"
+    },
+    "Punjab Kings": {
+        captain: "Shikhar Dhawan",
+        owner: "Mohit Burman, Ness Wadia, Preity Zinta, and Karan Paul",
+        coach: "Anil Kumble",
+        venue: "Punjab Cricket Association Stadium, Mohali",
+        logo: "https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/PBKS/Logos/Logooutline/PBKSoutline.png",
+        trophies: "None",
+        officialSite: "https://www.punjabkings.in/"
+    },
+    "Rajasthan Royals": {
+        captain: "Sanju Samson",
+        owner: "Manoj Badale",
+        coach: "Kumar Sangakkara",
+        venue: "Sawai Mansingh Stadium, Jaipur",
+        logo: "https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/RR/Logos/Logooutline/RRoutline.png",
+        trophies: "2008",
+        officialSite: "https://www.rajasthanroyals.com/"
+    },
+    "Lucknow Super Giants": {
+        captain: "KL Rahul",
+        owner: "Lucknow Super Giants Consortium",
+        coach: "Tom Moody",
+        venue: "Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
+        logo: "https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/LSG/Logos/Logooutline/LSGoutline.png",
+        trophies: "None",
+        officialSite: "https://www.lucknowsupergiants.com/"
+    },
+    // Add details for Gujarat Titans
+    "Gujarat Titans": {
+        captain: "Hardik Pandya",
+        owner: "Gujarat Titans Group",
+        coach: "Shane Bond",
+        venue: "Sardar Patel Stadium, Motera, Ahmedabad",
+        logo: "https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/GT/Logos/Logooutline/GToutline.png",
+        trophies: "2022",
+        officialSite: "https://www.gujarattitans.com/"
+    }
+}; %>
+
+<!-- Team Details Container -->
+<% const teamName = players.length > 0 ? players[0].teamName : ''; %>
+<% if (teamDetails.hasOwnProperty(teamName)) { %>
+    <div class="team-details-container">
+        <div id="<%= teamName %>_details" class="team-detail-text">
+            <div class="team-name">
+                <h2><%= teamName %></h2>
+                <a href="<%= teamDetails[teamName].officialSite %>" target="_blank" class="official-site-btn">Official Team Site</a>
+            </div>
+            <div class="logo-trophy-details">
+                <div class="logo">
+                    <img src="<%= teamDetails[teamName].logo %>" alt="Team Logo">
+                </div>
+                <div class="trophy-details">
+                    <img src="https://www.iplt20.com/assets/images/team-trophy.png" alt="Trophy Icon">
+                    <span><%= teamDetails[teamName].trophies %></span>
+                </div>
+            </div>
+            <div class="team-info">
+                <div class="detail-row">
+                    <p><span style="color: yellow; font-weight: bold; font-family: 'Poppins', sans-serif;">Captain:</span> <strong style="color: white; font-family: 'Poppins', sans-serif;"><%= teamDetails[teamName].captain %></strong></p>
+                </div>
+                <div class="detail-row">
+                    <p><span style="color: yellow; font-weight: bold; font-family: 'Poppins', sans-serif;">Owner:</span> <strong style="color: white; font-family: 'Poppins', sans-serif;"><%= teamDetails[teamName].owner %></strong></p>
+                </div>
+                <div class="detail-row">
+                    <p><span style="color: yellow; font-weight: bold; font-family: 'Poppins', sans-serif;">Coach:</span> <strong style="color: white; font-family: 'Poppins', sans-serif;"><%= teamDetails[teamName].coach %></strong></p>
+                </div>
+                <div class="detail-row">
+                    <p><span style="color: yellow; font-weight: bold; font-family: 'Poppins', sans-serif;">Venue:</span> <strong style="color: white; font-family: 'Poppins', sans-serif;"><%= teamDetails[teamName].venue %></strong></p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+<% } %>
+<div class="mt-5"></div> <!-- Add spacing here -->
+
+
+<div class="bottom-section-main">
+    <div class="container">
+        <h2 class="text-center">SQUAD</h2> 
+        <div class="row row-cols-1 row-cols-md-5"> <!-- Specify the number of columns here -->
+            <% for (const player of players) { %>
+                <div class="col mb-4"> <!-- Adjust margin here -->
+                    <div class="card h-100"> <!-- Adjust card height here -->
+                        <div class="position-relative">
+                            <!-- Player Image -->
+                            <img src="/uploads/<%= player.image %>" class="card-img-top" alt="<%- player.name %>">
+                            <!-- Role Icon -->
+                            <div class="teams-icon">
+                                <% if (player.Role === 'Batsman') { %>
+                                    <span>
+                                        <img src="https://www.iplt20.com/assets/images/teams-batsman-icon.svg" alt="Batsman">
+                                    </span>
+                                <% } else if (player.Role === 'Bowler') { %>
+                                    <span>
+                                        <img src="https://www.iplt20.com/assets/images/teams-bowler-icon.svg" alt="Bowler">
+                                    </span>
+                                <% } else if (player.Role === 'Allrounder') { %>
+                                    <span>
+                                        <img src="https://www.iplt20.com/assets/images/teams-all-rounder-icon.svg" alt="All-rounder">
+                                    </span>
+                                <% } else if (player.Role === 'WK Keeper batsman') { %>
+                                    <span>
+                                        <img src="https://www.iplt20.com/assets/images/teams-wicket-keeper-icon.svg" alt="WK Keeper batsman">
+                                    </span>
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><%= player.name %></h5>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#playerModal_<%= player._id %>">View Details</button>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="playerModal_<%= player._id %>" tabindex="-1" role="dialog" aria-labelledby="playerModalLabel_<%= player._id %>" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="playerModalLabel_<%= player._id %>"><%= player.name %></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" style="padding-bottom: 20px;"> <!-- Add padding-bottom -->
+                                        <!-- Player Image -->
+                                        <img src="/uploads/<%= player.image %>" class="card-img-top" alt="<%- player.name %>">
+                                        <!-- Player Details -->
+                                        <p><strong>Name:</strong> <%= player.name %></p>
+                                        <p><strong>Country:</strong> <%= player.Country %></p>
+                                        <p><strong>Age:</strong> <%= player.Age %></p>
+                                        <p><strong>Role:</strong> <%= player.Role %></p>
+                                        <p><strong>Team Name:</strong> <%= player.teamName %></p>
+                                        <!-- Trophy Section -->
+                                        <!-- <div class="vn-trophyBtn">
+                                            <img src="https://www.iplt20.com/assets/images/team-trophy.png" alt="">
+                                            <span>2012, 2014</span>
+                                        </div> -->
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<style>
+    /* Add the provided styles here */
+
+    .logo-trophy-details {
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .11);
+    border-left: 0;
+    color: #fff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    padding-block: 5px;
+    padding-right: 15px;
+    margin-left: 14px;
+}
+
+    .official-site-btn {
+        text-align: var(--bs-body-text-align);
+        -webkit-text-size-adjust: 100%;
+        font-family: Rubik,sans-serif;
+        line-height: 1.5;
+        box-sizing: inherit;
+        text-decoration: none!important;
+        -webkit-tap-highlight-color: transparent;
+        margin: 0;
+        border: 0;
+        outline: 0;
+        background: #dc5034;
+        border-radius: 2px;
+        font-size: 16px;
+        padding: 4px 16px;
+        transform: skew(-10deg);
+        display: flex;
+        color: #fff;
+        width: fit-content;
+        margin-top: 20px;
+        font-weight: 600;
+    }
+
+    .official-site-btn:hover {
+        background: var(--bs-primary);
+    }
+
+    .team-details-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .team-detail-text {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        background: #112a5c;
+        border-radius: 10px;
+        overflow: hidden;
+        font-family: bebas_neueregular;
+        color: #fff;
+        padding: 20px;
+    }
+
+    .team-name {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .logo-trophy-details {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .logo {
+        width: 45%;
+    }
+
+    .logo img {
+        max-width: 100%;
+    }
+
+    .trophy-details {
+        width: 45%;
+        display: flex;
+        align-items: center;
+    }
+
+    .trophy-details img {
+        margin-right: 10px;
+    }
+
+    .team-info {
+        width: 100%;
+    }
+
+    .detail-row {
+        width: 50%;
+        padding: 11px 15px 8px;
+        display: flex;
+        font-size: 18px;
+        border-bottom: 2px solid #031945;
+        color: #fff;
+        letter-spacing: 1px;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    *,
+    :before,
+    :after {
+        box-sizing: inherit;
+    }
+
+    * {
+        outline: 0;
+    }
+</style>

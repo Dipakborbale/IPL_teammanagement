@@ -1,0 +1,271 @@
+<%- include('parts/header') %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Management</title>
+    <style>
+          body {
+            background-color: #1f1f1f; /* Dark background color */
+            color: #ffffff; /* Text color */
+            font-family: 'Poppins', sans-serif; /* Poppins font */
+            margin: 0;
+            padding: 0;
+        }
+
+        .vn-teamsOuterWrp {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .vn-teamsInnerWrp {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            list-style-type: none;
+            margin: 0;
+        }
+
+        .vn-teamsInnerWrp li {
+            width: calc(25% - 20px); /* 25% width for each team card with spacing */
+            background-color: #333;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .vn-teamsInnerWrp li:hover {
+            transform: translateY(-5px);
+        }
+
+        .vn-team-logo img {
+            width: 100%;
+            display: block;
+        }
+
+        
+
+        .ap-team-contn h3 {
+            text-align: center;
+            margin-top: 10px;
+            color: #ffffff;
+        }
+
+        .team-on-hover {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            text-align: center;
+            padding-top: 40%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .vn-teamsInnerWrp li:hover .team-on-hover {
+            display: block;
+            opacity: 1;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+<div class="vn-teamsOuterWrp">
+    <ul class="vn-teamsInnerWrp mb-0">
+       
+
+        <li class="TL_DC">
+            <a onclick="click_teams1(this)" data-event_context="team" data-team_name="Delhi Capitals" class="w-100" href="#">
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div class="vn-team-logo">
+                        <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/DC/Logos/LogoOutline/DCoutline.png" alt="">
+                    </div>
+                    <div class="ap-team-contn col-100">
+                        <h3 class="mb-0">Delhi Capitals</h3>
+                    </div>              
+                </div>
+                <div class="team-on-hover">
+                    
+                </div>  
+            </a>
+        </li>
+        
+        <li class="TL_KKR">
+            <a onclick="click_teams1(this)" data-event_context="team" data-team_name="Kolkata Knight Riders" class="w-100" href="#">
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div class="vn-team-logo">
+                        <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/KKR/Logos/Logooutline/KKRoutline.png" alt="">
+                    </div>
+                    <div class="ap-team-contn col-100">
+                        <h3 class="mb-0">Kolkata Knight Riders</h3>
+                    </div>              
+                </div>
+                <div class="team-on-hover">
+                    <img src="https://www.iplt20.com/assets/images/teams-trophy.svg" alt="">
+                    <div class="trophy-text-align">2012 | 2014</div>
+                </div>  
+            </a>
+        </li>
+
+        <li class="TL_MI">
+            <a onclick="click_teams1(this)" data-event_context="team" data-team_name="Mumbai Indians" class="w-100" href="#">
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div class="vn-team-logo">
+                        <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/MI/Logos/Logooutline/MIoutline.png" alt="">
+                    </div>
+                    <div class="ap-team-contn col-100">
+                        <h3 class="mb-0">Mumbai Indians</h3>
+                    </div>              
+                </div>
+                <div class="team-on-hover">
+                    <img src="https://www.iplt20.com/assets/images/teams-trophy.svg" alt="">
+                    <div class="trophy-text-align">2013 | 2015 | 2017 | 2019 | 2020</div>
+                </div>  
+            </a>
+        </li>
+    <!-- </ul> -->
+
+    <!-- <ul class="vn-teamsInnerWrp mb-0"> -->
+        <li class="TL_PBKS">
+            <a onclick="click_teams1(this)" data-event_context="team" data-team_name="Punjab Kings" class="w-100" href="#">
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div class="vn-team-logo">
+                        <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/PBKS/Logos/Logooutline/PBKSoutline.png" alt="">
+                    </div>
+                    <div class="ap-team-contn col-100">
+                        <h3 class="mb-0">Punjab Kings</h3>
+                    </div>              
+                </div>
+                <div class="team-on-hover">
+                    
+                </div>  
+            </a>
+        </li>
+
+        <li class="TL_RR">
+            <a onclick="click_teams1(this)" data-event_context="team" data-team_name="Rajasthan Royals" class="w-100" href="#">
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div class="vn-team-logo">
+                        <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/RR/Logos/Logooutline/RRoutline.png" alt="">
+                    </div>
+                    <div class="ap-team-contn col-100">
+                        <h3 class="mb-0">Rajasthan Royals</h3>
+                    </div>              
+                </div>
+                <div class="team-on-hover">
+                    <img src="https://www.iplt20.com/assets/images/teams-trophy.svg" alt="">
+                    <div class="trophy-text-align">2008</div>
+                </div>  
+            </a>
+        </li>
+
+        <li class="TL_RCB">
+            <a onclick="click_teams1(this)" data-event_context="team" data-team_name="Royal Challengers Bangalore" class="w-100" href="#">
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div class="vn-team-logo">
+                        <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/RCB/Logos/Logooutline/RCBoutline.png" alt="">
+                    </div>
+                    <div class="ap-team-contn col-100">
+                        <h3 class="mb-0">Royal Challengers Bangalore</h3>
+                    </div>              
+                </div>
+                <div class="team-on-hover">
+                    <img src="https://www.iplt20.com/assets/images/teams-trophy.svg" alt="">
+                    <div class="trophy-text-align">Ee Sala Cup Namde</div>
+                </div>   
+            </a>
+        </li>
+
+        <li class="TL_SRH">
+            <a onclick="click_teams1(this)" data-event_context="team" data-team_name="Sunrisers Hyderabad" class="w-100" href="#">
+                <div class="d-flex flex-wrap justify-content-center">
+                    <div class="vn-team-logo">
+                        <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/SRH/Logos/Logooutline/SRHoutline.png" alt="">
+                    </div>
+                    <div class="ap-team-contn col-100">
+                        <h3 class="mb-0">Sunrisers Hyderabad</h3>
+                    </div>              
+                </div>
+                <div class="team-on-hover">
+                    <img src="https://www.iplt20.com/assets/images/teams-trophy.svg" alt="">
+                    <div class="trophy-text-align">2016</div>
+                </div>  
+            </a>
+        </li>
+
+            <!-- Add list items for Gujarat Titans -->
+            <li class="TL_GT">
+                <a onclick="click_teams1(this)" data-event_context="team" data-team_name="Gujarat Titans" class="w-100" href="#">
+                    <div class="d-flex flex-wrap justify-content-center">
+                        <div class="vn-team-logo">
+                          <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/GT/Logos/Logooutline/GToutline.png">
+                        </div>
+                        <div class="ap-team-contn col-100">
+                            <h3 class="mb-0">Gujarat Titans</h3>
+                        </div>
+                    </div>
+                    <div class="team-on-hover">
+                        <img src="https://www.iplt20.com/assets/images/teams-trophy.svg" alt="">
+                        <div class="trophy-text-align">2022</div>
+                    </div>  
+                </a>
+            </li>
+    
+            <!-- Add list items for Lucknow Super Giants -->
+            <li class="TL_LSG">
+                <a onclick="click_teams1(this)" data-event_context="team" data-team_name="Lucknow Super Giants" class="w-100" href="#">
+                    <div class="d-flex flex-wrap justify-content-center">
+                        <div class="vn-team-logo">
+                          <img src="	https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/LSG/Logos/Logooutline/LSGoutline.png">
+                        </div>
+                        <div class="ap-team-contn col-100">
+                            <h3 class="mb-0">Lucknow Super Giants</h3>
+                        </div>
+                    </div>
+                    <div class="team-on-hover">
+                    </div>
+                </a>
+            </li>
+
+        <li class="TL_CSK">
+            <a onclick="click_teams1(this)" data-event_context="team" data-team_name="Chennai Super Kings" class="w-100" href="#">
+                <div class="d-flex flex-wrap justify-content-center align-items-center"> <!-- Add align-items-center class -->
+                    <div class="vn-team-logo">
+                        <img src="https://bcciplayerimages.s3.ap-south-1.amazonaws.com/ipl/CSK/logos/Logooutline/CSKoutline.png" alt="Chennai Super Kings">
+                    </div>
+                    <div class="ap-team-contn col-100">
+                        <h3 class="mb-0">Chennai Super Kings</h3>
+                    </div>
+                </div>
+                <div class="team-on-hover">
+                    <img src="https://www.iplt20.com/assets/images/teams-trophy.svg" alt="">
+                    <div class="trophy-text-align">2010 | 2011 | 2018 | 2021 | 2023</div>
+                </div>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+<script>
+    function click_teams1(element) {
+        var teamName = element.getAttribute('data-team_name');
+        // Redirect to the team_players page with the selected team name
+        window.location.href = `/team/${encodeURIComponent(teamName)}/players`;
+    }
+</script>
+
+</body>
+</html>
